@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <title>Parrot Janitor</title>
+
+  <!-- disc: the parrot's body/shoulder, cropped by the head breaking the rim -->
+  <circle cx="62" cy="72" r="44" fill="#24806b"/>
+
+  <!-- wing fold on the body -->
+  <path d="M 34 76 C 44 92 60 102 78 104 C 66 110 48 106 38 96
+           C 32 90 31 82 34 76 Z" fill="#1b6353" opacity="0.75"/>
+
+  <!-- crest, swept back and rising ABOVE the disc so it reads at 16px -->
+  <path d="M 66 40 C 54 30 46 18 45 6 C 58 14 68 26 72 38 Z" fill="#f2c14e"/>
+  <path d="M 74 38 C 68 26 66 14 69 4 C 78 14 82 26 82 36 Z" fill="#e0a92f"/>
+  <path d="M 82 40 C 80 30 82 21 87 14 C 91 24 91 34 88 42 Z" fill="#c99420"/>
+
+  <!-- head: overlaps the disc and pushes past its left rim -->
+  <circle cx="58" cy="46" r="27" fill="#4fd1a5"/>
+
+  <!-- beak: hooks DOWN-LEFT, well clear of the disc, so the profile is unmistakable -->
+  <path d="M 36 38 C 20 40 10 52 12 64
+           C 13 71 20 74 26 70
+           C 20 62 22 50 36 38 Z" fill="#f2c14e"/>
+  <path d="M 12 64 C 14 72 20 76 26 75"
+        fill="none" stroke="#c99420" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- lower mandible -->
+  <path d="M 24 68 C 28 74 34 76 40 74"
+        fill="none" stroke="#e0a92f" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- eye -->
+  <circle cx="52" cy="40" r="7" fill="#0b141a"/>
+  <circle cx="54.5" cy="37.5" r="2.5" fill="#ffffff" opacity="0.92"/>
+
+  <!-- sweep arcs: the "janitor" -->
+  <path d="M 74 104 C 84 101 94 101 102 105"
+        fill="none" stroke="#f2c14e" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  <path d="M 82 114 C 90 111 98 111 105 114"
+        fill="none" stroke="#f2c14e" stroke-width="4.5" stroke-linecap="round" opacity="0.6"/>
+</svg>

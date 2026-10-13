@@ -1,0 +1,24 @@
+parrot-janitor (1.0.0-1) unstable; urgency=medium
+
+  * Initial release.
+  * Processes tab: live CPU/RAM table with sustained-runaway detection
+    (configurable CPU and duration thresholds), binary path + owning Debian
+    package identification, plain-English process descriptions, filter and
+    multi-select kill with confirmation and optional polkit escalation.
+  * Resources tab: per-thread utilisation bars with heat colouring, rolling
+    7-minute CPU/RAM history chart, load average, memory split into
+    in-use / reclaimable cache / free, swap, and thermal-zone temperatures.
+  * Ports tab: every listening socket from ss classified by scope, then
+    verified with a real TLS handshake or protocol banner read; explicit
+    open/closed connect-test of 36 well-known ports; read-only ufw/nft
+    firewall view through polkit.
+  * Docker tab: container list with live CPU/memory and bulk start/stop/
+    restart.
+  * Snapshots tab: create, inspect and delete read-only btrfs snapshots of @
+    and @home under /.snapshots, all authenticated through pkexec.
+  * Disk tab: size overview, big-file finder, empty trash, purge pip cache
+    and delete a selected cache entry, each behind a confirmation.
+  * Custom icon and desktop launcher.
+  * Headless self-test via `parrot-janitor --smoke`.
+
+ -- Abdellah ERRAOUI <abdellah.erraoui@users.noreply.github.com>  Tue, 13 Oct 2026 11:21:47 +0000

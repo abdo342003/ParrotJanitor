@@ -1,0 +1,28 @@
+Package: parrot-janitor
+Version: @VER@
+Architecture: @ARCH@
+Maintainer: Abdellah ERRAOUI <abdellah.erraoui@users.noreply.github.com>
+Section: utils
+Priority: optional
+Depends: python3 (>= 3.9), python3-pyside6.qtcore, python3-pyside6.qtgui, python3-pyside6.qtwidgets, procps, iproute2, btrfs-progs, pkexec, hicolor-icon-theme, desktop-file-utils
+Recommends: docker.io | docker-ce | docker
+Description: system janitor GUI for Parrot OS (runaway killer, ports, snapshots)
+ Parrot Janitor is a Qt6 desktop utility that bundles together jobs that htop,
+ KDE System Monitor and bleachbit do not do on their own:
+ .
+  * runaway process detection — flags processes pinned at high CPU for a
+    SUSTAINED period (not just momentarily busy), explains what each one is by
+    resolving its binary path and Debian package, and kills it behind a
+    confirmation dialog with an optional polkit escalation
+  * resources — per-thread utilisation bars, a rolling CPU/RAM history chart,
+    load average, memory split into in-use / reclaimable cache / free, swap,
+    and temperatures read from /sys/class/thermal
+  * ports and exposure — classifies every listening socket by scope
+    (loopback / LAN / multicast / all interfaces) and verifies whether it is
+    actually secured using a real TLS handshake or protocol banner, plus an
+    explicit open/closed connect-test of 36 well-known ports and a read-only
+    firewall view
+  * Docker lab manager (bulk start/stop), btrfs snapshot manager for @ and
+    @home, and disk usage / cleanup
+ .
+ All privileged operations go through polkit (pkexec) rather than plain sudo.

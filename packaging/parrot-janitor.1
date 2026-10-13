@@ -1,0 +1,97 @@
+.TH PARROT-JANITOR 1 "13 October 2026" "parrot-janitor 1.0.0" "User Commands"
+.SH NAME
+parrot-janitor \- system janitor GUI for Parrot OS
+.SH SYNOPSIS
+.B parrot-janitor
+.RI [ options ]
+.SH DESCRIPTION
+.B parrot-janitor
+is a Qt6 desktop utility for Parrot OS that bundles together jobs that htop,
+KDE System Monitor and bleachbit do not do on their own: runaway process
+detection, resource monitoring, port exposure analysis, Docker lab
+management, btrfs snapshot management and disk cleanup.
+.PP
+All privileged operations are performed through
+.B pkexec
+(polkit), so the desktop's graphical authentication prompt is used instead of
+a bare
+.BR sudo .
+.SH TABS
+.TP
+.B Processes
+Live CPU/RAM table. A process becomes
+.I HOT
+once its CPU reaches the threshold (default 90%) and
+.I RUNAWAY
+once it has stayed there for the sustain period (default 60s). Both are
+adjustable. The binary path and owning Debian package are resolved in the
+background. Kill sends SIGTERM behind a confirmation dialog.
+.TP
+.B Resources
+Per-thread utilisation bars, a rolling 7-minute CPU/RAM history chart, load
+average, memory split into in-use / reclaimable cache / free, swap usage and
+temperatures from /sys/class/thermal.
+.TP
+.B Ports & exposure
+Every listening socket from
+.BR ss (8),
+classified by scope (loopback / LAN / multicast / all interfaces), then
+checked with a real TLS handshake or a protocol banner read. Verdicts are
+.BR Secured ,
+.BR Local ,
+.BR Open ,
+.BR Exposed
+and
+.BR Unknown .
+A connect-test of 36 well-known ports gives an explicit open/closed answer.
+A read-only view of
+.BR ufw (8)
+and
+.BR nft (8)
+rules is available behind polkit.
+.TP
+.B Docker
+Container list with live CPU/memory and bulk start/stop/restart.
+.TP
+.B Snapshots
+Create, inspect and delete read-only btrfs snapshots of
+.I @
+and
+.I @home
+under
+.IR /.
+snapshots/.
+.TP
+.B Disk
+Size overview, big-file finder, empty trash, purge pip cache and delete a
+selected cache entry, each behind a confirmation dialog.
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Show the argument summary and exit.
+.TP
+.BR \-\-smoke
+Run a headless self-check: sample processes, query Docker, exercise the
+helper functions and construct every widget, then exit non-zero if anything
+is broken. No window is displayed.
+.SH FILES
+.TP
+.I /usr/lib/parrot-janitor/parrotjanitor.py
+The application itself.
+.TP
+.I /usr/share/applications/parrot-janitor.desktop
+Application menu entry.
+.TP
+.I /usr/share/icons/hicolor/*/apps/parrot-janitor.*
+Application icon.
+.SH "SEE ALSO"
+.BR htop (1),
+.BR btop (1),
+.BR ss (8),
+.BR btrfs (8),
+.BR pkexec (1),
+.BR docker (1),
+.BR ufw (8),
+.BR nft (8)
+.SH AUTHOR
+Abdellah ERRAOUI.

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Parrot Janitor
+GenericName=System Janitor
+Comment=Runaway process killer, resources, ports, Docker, btrfs snapshots, disk cleanup
+Exec=/usr/bin/parrot-janitor
+Icon=parrot-janitor
+Terminal=false
+Categories=System;Monitor;
+Keywords=cpu;runaway;kill;process;docker;container;snapshot;btrfs;disk;cache;cleanup;ports;firewall;monitor;
+StartupNotify=true
+StartupWMClass=parrotjanitor
